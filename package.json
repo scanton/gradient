@@ -1,0 +1,29 @@
+{
+  "name": "gradient",
+  "version": "1.0.0",
+  "description": "Tool to create triangle gradient images",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scanton/gradient.git"
+  },
+  "keywords": [
+    "triangle",
+    "pixel",
+    "gradient"
+  ],
+  "author": "Satori Canton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scanton/gradient/issues"
+  },
+  "homepage": "https://github.com/scanton/gradient#readme",
+  "dependencies": {
+    "electron-prebuilt": "^1.4.13",
+    "fs-extra": "^5.0.0"
+  }
+}

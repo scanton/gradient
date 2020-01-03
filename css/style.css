@@ -1,0 +1,60 @@
+body {
+	background: black;
+	color: #999;
+	padding-top: 50px;
+}
+select {
+	font-size: 12pt;
+}
+#main-app {
+	position: relative;
+}
+.clear {
+	clear: both;
+}
+input[type=range][orient=vertical] {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 8px;
+    height: 175px;
+    padding: 0 5px;
+    margin-left: 2px;
+}
+.modal-view {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, .5);
+}
+.modal-view input {
+	width: 100%;
+	padding: .5em;
+	border-radius: 5px;
+	background: #222;
+	color: white;
+	margin-bottom: .25em;
+	border: 1px solid #555;
+	display: inline-block;
+}
+.modal-view input[type="checkbox"] {
+	display: inline;
+	width: 30px;
+}
+.modal-view.hidden {
+	display: none;
+}
+.modal-view .btn-warning {
+	margin-right: 1.5em;
+}
+.modal-view .dialog {
+	background: #444;
+	padding: 2em;
+	margin: 10em;
+	border-radius: 10px;
+}
+.modal-dialog-view .dialog-buttons {
+	display: inline-block;
+	margin-top: 1em;
+}
