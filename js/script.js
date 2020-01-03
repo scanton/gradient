@@ -66,8 +66,12 @@ const getColorFromData = function(data) {
 	return 'rgba(' + data[0] + ', ' + data[1] + ', ' + data[2] + ', ' + (data[3] / 255) + ')';
 }
 const componentToHex = function (c) {
-	var hex = c.toString(16);
-	return hex.length == 1 ? "0" + hex : hex;
+	if(c) {
+		var hex = c.toString(16);
+		return hex.length == 1 ? "0" + hex : hex;
+	} else {
+		return "00";
+	}
 }
 const hexToComponent = function(hex) {
 	return [parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16), 255];
@@ -127,7 +131,23 @@ const store = new Vuex.Store({
 		isModalDialogVisible: false,
 		modalDialogTitle: '',
 		modalDialogBody: '',
-		modalDialogButtons: []
+		modalDialogButtons: [],
+		stops: [
+			{
+				r: 255,
+				g: 0,
+				b: 0,
+				a: 1,
+				stop: 0
+			},
+			{
+				r: 0,
+				g: 0,
+				b: 255,
+				a: 1,
+				stop: 100
+			}
+		]
 	},
 	actions: {
 		/*
@@ -167,6 +187,7 @@ const vm = new Vue({
 	el: '#main-app',
 	store: store
 });
+/*
 store.commit("showModalDialog", {
 	title: "test title", 
 	body: "Test body copy", 
@@ -188,4 +209,5 @@ store.commit("showModalDialog", {
 		}
 	]}
 );
+*/
 //const paletteDirectory = __dirname + '/palettes';

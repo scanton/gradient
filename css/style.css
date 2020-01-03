@@ -58,3 +58,29 @@ input[type=range][orient=vertical] {
 	display: inline-block;
 	margin-top: 1em;
 }
+.text-input input {
+	padding: .25em;
+	border-radius: 5px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 14pt;
+	max-width: 50px;
+}
+.hex-color .text-input input {
+	max-width: 150px;	
+}
+.text-input, .hex-color, .color-swatch {
+	display: inline-block;
+}
+.color-swatch {
+
+}
+.color-swatch .background {
+	background-color: white;
+	padding: 3px;
+	border-radius: 13px;
+	border: 3px solid white;
+}
+.color-swatch.selected .background {
+	border: 3px solid black;
+}
