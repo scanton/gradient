@@ -4,6 +4,9 @@
 		<div class="` + componentName + `">
 			<div class="background">
 				<div class="color-sample" :style="'border-radius: 10px; width: 40px; height: 40px; background-color: ' + color"></div>
+				<div class="color-pallet">
+					<img src="./images/spectrum.jpg" />
+				</div>
 			</div>
 		</div>
 	`;
