@@ -170,6 +170,11 @@ const store = new Vuex.Store({
 		hideModalDialog: function(state) {
 			state.isModalDialogVisible = false;
 		},
+		setStopColor: function(state, args) {
+			Vue.set(state.stops[args.index], 'r', args.r);
+			Vue.set(state.stops[args.index], 'g', args.g);
+			Vue.set(state.stops[args.index], 'b', args.b);
+		},
 		showModalDialog: function(state, args) {
 			if(args && args.title && args.body && args.buttons) {
 				state.modalDialogTitle = args.title;

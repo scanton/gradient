@@ -11,7 +11,7 @@
 		},
 		computed: {
 			hexColor: function() {
-				return getHexColorFromData([stop.r, stop.g, stop.b]);
+				return getHexColorFromData([this.stop.r, this.stop.g, this.stop.b]);
 			}
 		},
 		props: ["stop"],

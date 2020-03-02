@@ -5,7 +5,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div v-for="(stop, index) in stops">
-						<color-swatch :color="'rgba(' + stop.r + ', ' + stop.g + ', ' + stop.b + ', ' + stop.a + ')'"></color-swatch>
+						<color-swatch v-on:colorChange="handleColorChange" :index="index" :color="'rgba(' + stop.r + ', ' + stop.g + ', ' + stop.b + ', ' + stop.a + ')'"></color-swatch>
 						<hex-color :stop="stop"></hex-color>
 						<text-input :value="stop.stop"></text-input>
 					</div>
@@ -28,7 +28,9 @@
 			return {}
 		},
 		methods: {
-			
+			handleColorChange: function(e) {
+				store.commit("setStopColor", e);
+			}
 		}
 	});
 })();
