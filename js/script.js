@@ -132,6 +132,8 @@ const store = new Vuex.Store({
 		modalDialogTitle: '',
 		modalDialogBody: '',
 		modalDialogButtons: [],
+		gradientType: 'linear',
+		linearGradientAngle: 310,
 		stops: [
 			{
 				r: 255,
@@ -169,6 +171,9 @@ const store = new Vuex.Store({
 	mutations: {
 		hideModalDialog: function(state) {
 			state.isModalDialogVisible = false;
+		},
+		setGradientType: function(state, type) {
+			state.gradientType = type;
 		},
 		setStopColor: function(state, args) {
 			Vue.set(state.stops[args.index], 'r', args.r);
