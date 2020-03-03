@@ -58,13 +58,13 @@ input[type=range][orient=vertical] {
 	display: inline-block;
 	margin-top: 1em;
 }
-.text-input input {
+input {
 	padding: .25em;
 	border-radius: 5px;
 	font-weight: bold;
 	text-align: center;
 	font-size: 14pt;
-	max-width: 50px;
+	
 }
 .hex-color .text-input input {
 	max-width: 150px;	

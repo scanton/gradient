@@ -2,7 +2,7 @@
 	var componentName = 'text-input';
 	var s = `
 		<div class="` + componentName + `">
-			<input :value="value" />
+			<input @change="handleChange" :value="value" />
 		</div>
 	`;
 	
@@ -17,7 +17,9 @@
 			return {}
 		},
 		methods: {
-			
+			handleChange: function(e) {
+				this.$emit("change", e);
+			}
 		}
 	});
 })();

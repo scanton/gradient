@@ -133,10 +133,12 @@ const store = new Vuex.Store({
 		modalDialogBody: '',
 		modalDialogButtons: [],
 		gradientType: 'linear',
+		radialGradientType: 'circle',
+		supportedRadialGradientTypes: ['circle', 'ellipse'],
 		linearGradientAngle: 310,
 		stops: [
 			{
-				r: 255,
+				r: 0,
 				g: 0,
 				b: 0,
 				a: 1,
@@ -145,7 +147,7 @@ const store = new Vuex.Store({
 			{
 				r: 0,
 				g: 0,
-				b: 255,
+				b: 0,
 				a: 1,
 				stop: 100
 			}
@@ -172,8 +174,14 @@ const store = new Vuex.Store({
 		hideModalDialog: function(state) {
 			state.isModalDialogVisible = false;
 		},
+		setGradientAngle: function(state, val) {
+			state.linearGradientAngle = val;
+		},
 		setGradientType: function(state, type) {
 			state.gradientType = type;
+		},
+		setRadialGradientType: function(state, type) {
+			state.radialGradientType = type;
 		},
 		setStopColor: function(state, args) {
 			Vue.set(state.stops[args.index], 'r', args.r);
@@ -189,6 +197,18 @@ const store = new Vuex.Store({
 			} else {
 				console.error("insufficient modal args: ", args);
 			}
+		},
+		updateHexValue: function(state, args) {
+			if(args.value.match(/^#([0-9a-f]{6})$/i) != null) {
+				var color = hexToComponent(args.value);
+				Vue.set(state.stops[args.index], 'r', color[0]);
+				Vue.set(state.stops[args.index], 'g', color[1]);
+				Vue.set(state.stops[args.index], 'b', color[2]);
+				Vue.set(state.stops[args.index], 'a', Math.floor(color[3]/ 255));
+			}
+		},
+		updateStopValue: function(state, args) {
+			Vue.set(state.stops[args.index], 'stop', args.value);
 		}
 	}
 });

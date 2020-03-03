@@ -2,7 +2,7 @@
 	var componentName = 'hex-color';
 	var s = `
 		<div class="` + componentName + `">
-			<text-input :value="hexColor"></text-input>
+			<text-input @change="handleChange" :value="hexColor"></text-input>
 		</div>
 	`;
 	
@@ -20,7 +20,9 @@
 			return {}
 		},
 		methods: {
-			
+			handleChange: function(e) {
+				this.$emit("change", e);
+			}
 		}
 	});
 })();
