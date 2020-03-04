@@ -135,15 +135,15 @@ const store = new Vuex.Store({
 		gradientType: 'linear',
 		radialGradientType: 'circle',
 		supportedRadialGradientTypes: ['circle', 'ellipse'],
-		linearGradientAngle: 310,
+		linearGradientAngle: 90,
 		isDraggingHandle: false,
 		handleDragIndex: null,
 		trixelWidth: 30,
 		stops: [
 			{
-				r: 60,
-				g: 60,
-				b: 60,
+				r: 255,
+				g: 0,
+				b: 0,
 				a: 1,
 				stop: 0
 			},

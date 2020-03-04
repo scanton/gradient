@@ -6,8 +6,8 @@
 				<div class="col-xs-12">
 					<div v-for="(stop, index) in stops">
 						<color-swatch v-on:colorChange="handleColorChange" :index="index" :color="'rgba(' + stop.r + ', ' + stop.g + ', ' + stop.b + ', ' + stop.a + ')'"></color-swatch>
-						<hex-color @change="handleHexChange" :data-index="index" :stop="stop"></hex-color>
-						<input min="0" max="100" style="width: 66px" @change="handleStopChange" :data-index="index" :value="stop.stop" type="number"></input>
+						<hex-color class="floating-input" @change="handleHexChange" :data-index="index" :stop="stop"></hex-color>
+						<input class="floating-input" min="0" max="100" style="width: 66px" @change="handleStopChange" :data-index="index" :value="stop.stop" type="number"></input>
 					</div>
 				</div>
 			</div>

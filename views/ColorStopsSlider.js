@@ -52,8 +52,12 @@
 			},
 			handleMouseMove: function(e) {
 				if(store.state.isDraggingHandle) {
-					var offiset = $(e.target).offset().left;
-					var loc = ((e.x - offiset) / $(e.target).width());
+					var $target = $(e.target);
+					if($target.hasClass("color-stop-handle")) {
+						$target = $($target.closest(".slider-bar"));
+					}
+					var offiset = $target.offset().left;
+					var loc = ((e.x - offiset) / $target.width());
 					if(loc > 0 && loc < 1) {
 						var val = Math.round(loc * 100);
 						store.commit("updateStopValue", {value: val, index: store.state.handleDragIndex});

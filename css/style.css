@@ -73,14 +73,23 @@ input {
 	display: inline-block;
 }
 .color-swatch {
-
+	position: relative;
+	width: 52px;
+	height: 52px;
 }
 .color-swatch .background {
 	background-color: white;
 	padding: 3px;
 	border-radius: 13px;
 	border: 3px solid white;
+	position: absolute;
 }
 .color-swatch.selected .background {
 	border: 3px solid black;
+}
+.color-swatch.selected .background .color-pallet {
+	z-index: 20;
+}
+.color-stop-details .floating-input {
+	transform: translateY(-20px);
 }
