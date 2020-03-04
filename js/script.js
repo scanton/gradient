@@ -136,11 +136,14 @@ const store = new Vuex.Store({
 		radialGradientType: 'circle',
 		supportedRadialGradientTypes: ['circle', 'ellipse'],
 		linearGradientAngle: 310,
+		isDraggingHandle: false,
+		handleDragIndex: null,
+		trixelWidth: 30,
 		stops: [
 			{
-				r: 0,
-				g: 0,
-				b: 0,
+				r: 60,
+				g: 60,
+				b: 60,
 				a: 1,
 				stop: 0
 			},
@@ -171,6 +174,10 @@ const store = new Vuex.Store({
 		*/
 	},
 	mutations: {
+		beginColorStopDrag: function(state, args) {
+			state.isDraggingHandle = true;
+			state.handleDragIndex = args.index;
+		},
 		hideModalDialog: function(state) {
 			state.isModalDialogVisible = false;
 		},
@@ -208,7 +215,11 @@ const store = new Vuex.Store({
 			}
 		},
 		updateStopValue: function(state, args) {
-			Vue.set(state.stops[args.index], 'stop', args.value);
+			if(args.index != null && args.value != null) {
+				Vue.set(state.stops[args.index], 'stop', args.value);
+			} else {
+				console.log("Insufficient Arguments: ", args);
+			}
 		}
 	}
 });
@@ -216,6 +227,12 @@ const store = new Vuex.Store({
 const vm = new Vue({
 	el: '#main-app',
 	store: store
+});
+
+$(document).mouseup(function(e) {
+	if(store.state.isDraggingHandle) {
+		store.state.isDraggingHandle = false;
+	}
 });
 /*
 store.commit("showModalDialog", {

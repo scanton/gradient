@@ -3,8 +3,8 @@
 	var s = `
 		<div class="` + componentName + ` container-fluid">
 			<div class="row" style="margin: 5px 0; border: 2px solid #ccc; padding: 4px; border-radius: 5px;">
-				<div class="col-xs-12" style="width: 100%; height: 30px;" :style="getStyle()">
-					<div v-for="stop in stops" :style="getStopStyle(stop)"></div>
+				<div @mousedown="handleMouseDown" @mousemove="handleMouseMove" class="col-xs-12 slider-bar" style="width: 100%; height: 30px;" :style="getStyle()">
+					<div class="color-stop-handle" v-for="stop, index in stops" :data-index="index" :style="getStopStyle(stop)"></div>
 				</div>
 			</div>
 		</div>
@@ -12,6 +12,7 @@
 	
 	Vue.component(componentName, {
 		created: function() {
+
 		},
 		computed: {
 			stops: function() {
@@ -42,6 +43,22 @@
 				s += a.join(", ");
 				s += ');';
 				return s;
+			},
+			handleMouseDown: function(e) {
+				var $target = $(e.target);
+				if($target.hasClass("color-stop-handle")) {
+					store.commit("beginColorStopDrag", {index: $target.attr("data-index"), context: $target.closest(".slider-bar") });
+				}
+			},
+			handleMouseMove: function(e) {
+				if(store.state.isDraggingHandle) {
+					var offiset = $(e.target).offset().left;
+					var loc = ((e.x - offiset) / $(e.target).width());
+					if(loc > 0 && loc < 1) {
+						var val = Math.round(loc * 100);
+						store.commit("updateStopValue", {value: val, index: store.state.handleDragIndex});
+					}
+				}
 			}
 		}
 	});

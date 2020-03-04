@@ -27,6 +27,11 @@
 					<gradient-swatches></gradient-swatches>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<trixelated-output></trixelated-output>
+				</div>
+			</div>
 		</div>
 	`;
 	
