@@ -5,6 +5,16 @@ const fs = require('fs-extra');
 
 require('./custom_modules/utils/enableContextMenu.js')();
 
+const svgToCanvas = function(svgSource, canvasReference) {
+    svgXml = (new XMLSerializer()).serializeToString(svgSource);
+    var ctx = canvasReference.getContext('2d');
+    var img = new Image();
+    img.src = "data:image/svg+xml;base64," + btoa(svgXml);
+    img.onload = function() {
+        ctx.drawImage(img, 0, 0);
+    }
+}
+
 const stripObservers = function(obj) {
 	return JSON.parse(JSON.stringify(obj, null, 4));
 }
@@ -141,9 +151,9 @@ const store = new Vuex.Store({
 		trixelWidth: 30,
 		stops: [
 			{
-				r: 255,
-				g: 0,
-				b: 0,
+				r: 50,
+				g: 50,
+				b: 50,
 				a: 1,
 				stop: 0
 			},

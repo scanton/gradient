@@ -5,6 +5,7 @@
 			<div class="row">
 				<div id="trixelator-target" class="col-xs-12" style="width: 100%; min-height: 200px;" :style="getStyle()">
 				</div>
+				<canvas id="trixelator-canvas" style="width: 100%; height: 200px;"></canvas>
 			</div>
 		</div>
 	`;
