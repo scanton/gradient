@@ -3,7 +3,7 @@
 	var s = `
 		<div class="` + componentName + ` container-fluid">
 			<div class="row">
-				<div class="col-xs-12" style="width: 100%; min-height: 200px;" :style="getStyle()">
+				<div id="trixelator-target" class="col-xs-12" style="width: 100%; min-height: 200px;" :style="getStyle()">
 				</div>
 			</div>
 		</div>
