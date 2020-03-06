@@ -6,7 +6,7 @@ const fs = require('fs-extra');
 require('./custom_modules/utils/enableContextMenu.js')();
 
 const svgToCanvas = function(svgSource, canvasReference) {
-    svgXml = (new XMLSerializer()).serializeToString(svgSource);
+    var svgXml = (new XMLSerializer()).serializeToString(svgSource);
     var ctx = canvasReference.getContext('2d');
     var img = new Image();
     img.src = "data:image/svg+xml;base64," + btoa(svgXml);
