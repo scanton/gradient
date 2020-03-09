@@ -23,6 +23,17 @@
 			return {}
 		},
 		methods: {
+			calculateColorDifference: function(compareColor, color1, color2) {
+				var c1 = hexToComponent(color1);
+				var c2 = hexToComponent(color2);
+				var c3 = hexToComponent(compareColor);
+				var delta1 = minColorDiff(c3, [c1]);
+				var delta2 = minColorDiff(c3, [c2]);
+				var percent1 = Math.round((1 - (delta1 / (delta1 + delta2))) * 10) * 10;
+				var percent2 = Math.round((1 - (delta2 / (delta1 + delta2))) * 10) * 10;
+				console.log(percent1, percent2, percent1 + percent2);
+				return [percent1, percent2, percent1 + percent2];
+			}
 			renderSvg: function() {
 				var a = [];
 				var stop;
