@@ -149,6 +149,7 @@ const store = new Vuex.Store({
 		isDraggingHandle: false,
 		handleDragIndex: null,
 		trixelWidth: 30,
+		sampleSize: 20,
 		stops: [
 			{
 				r: 50,

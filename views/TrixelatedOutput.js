@@ -3,7 +3,7 @@
 	var s = `
 		<div class="` + componentName + ` container-fluid">
 			<div class="row">
-				<div id="output-svg" class="col-xs-12" v-html="generateMosaic()">
+				<div id="output-svg" class="col-xs-12">
 					
 				</div>
 			</div>
@@ -25,11 +25,11 @@
 		},
 		methods: {
 			generateMosaic: function(e) {
+				/*
 				var base = store.state.trixelWidth;
 				var halfBase = base / 2;
 				var baseSin = base * eqSin;
 
-				/*
 				var img = document.getElementById("trixelator-target");
 				var canvas = document.createElement("canvas");
 				canvas.width = img.width;
